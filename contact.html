@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script>
+  const params = new URLSearchParams(window.location.search);
+  const course = params.get("course");
+  const courseSelect = document.getElementById("course");
+
+  if (course && courseSelect) {
+    const matchingOption = Array.from(courseSelect.options).find(
+      option => option.value.toLowerCase() === course.toLowerCase()
+    );
+
+    if (matchingOption) {
+      courseSelect.value = matchingOption.value;
+    }
+  }
+</script>
 
 <header>
     <div class="container">
@@ -111,12 +126,12 @@
 
                 <button type="submit" class="button">Submit Inquiry</button>
             </form>
-
-            <p class="notice">
-                This form is a front-end demo. It does not currently send
-                or save inquiries. A form-handling service or backend must
-                be connected before using it with real customers.
-            </p>
+            
+<p class="notice">
+    This form is a front-end demo. It does not currently send
+    or save inquiries. A form-handling service or backend must
+    be connected before using it with real customers.
+</p>
         </div>
     </div>
 </section>
@@ -162,6 +177,24 @@
         <p>Learn Today, Lead Tomorrow.</p>
     </div>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const course = params.get("course");
+    const courseSelect = document.getElementById("course");
+
+    if (course && courseSelect) {
+        const matchingOption = Array.from(courseSelect.options).find(
+            option => option.value.toLowerCase() === course.toLowerCase()
+        );
+
+        if (matchingOption) {
+            courseSelect.value = matchingOption.value;
+        }
+    }
+});
+</script>
 
 </body>
 </html>
